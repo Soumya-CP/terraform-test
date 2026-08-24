@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "drift_demo" {
   count = var.create_demo_resource ? 1 : 0
 
   name     = local.resource_group_name
-  location = "centralindia" # subscription region policy disallows eastus
+  location = "eastasia" # subscription policy: only austriaeast/malaysiawest/koreacentral/uaenorth/eastasia
   tags     = local.common_tags
 }
 
