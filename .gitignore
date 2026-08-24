@@ -1,0 +1,15 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+.terraform.tfstate.lock.info
+
+# Local backend and variable overrides may contain environment-specific values.
+backend.hcl
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Keep the dependency lock file committed for repeatable provider installs.
+!.terraform.lock.hcl
