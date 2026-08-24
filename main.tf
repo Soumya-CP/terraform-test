@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "drift_demo" {
   count = var.create_demo_resource ? 1 : 0
 
   name     = local.resource_group_name
-  location = var.azure_location
+  location = "centralindia" # subscription region policy disallows eastus
   tags     = local.common_tags
 }
 
