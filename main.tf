@@ -1,11 +1,17 @@
 locals {
-  resource_group_name = "rg-ficp-${lower(var.tenant_slug)}-${lower(var.environment)}-drift-demo"
-  workspace_name      = "law-ficp-${lower(var.tenant_slug)}-${lower(var.environment)}-drift-demo"
+  normalized_tenant_slug = lower(var.tenant_slug)
+  normalized_environment = lower(var.environment)
+  name_prefix            = "ficp-${local.normalized_tenant_slug}-${local.normalized_environment}"
+
+  resource_group_name = "rg-${local.name_prefix}-drift-demo"
+  workspace_name      = "law-${local.name_prefix}-drift-demo"
 
   common_tags = {
     Name        = "ficp-drift-demo"
-    Tenant      = var.tenant_slug
-    Environment = var.environment
+    Project     = "FICP"
+    Workload    = "LogAnalytics"
+    Tenant      = local.normalized_tenant_slug
+    Environment = local.normalized_environment
     Owner       = var.owner
     ManagedBy   = "Terraform"
     Release     = var.release_version
